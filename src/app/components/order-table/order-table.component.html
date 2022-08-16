@@ -1,0 +1,35 @@
+<div class="m-3">
+  <h1>Friendly Task</h1>
+  <div class="wrap">
+    <div class="search">
+      <input class="searchTerm" type="text" name="searchDescription"
+             placeholder="Search Description"
+             [(ngModel)]="term" (input)="search(term)"/>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">WO ID</th>
+        <th scope="col">Description</th>
+        <th scope="col">Received Date</th>
+        <th scope="col">Assigned to:</th>
+        <th scope="col">Status</th>
+        <th scope="col">Priority</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let order of orders ; index as i">
+        <td>{{order.work_order_id}}</td>
+        <td>{{order.description}}</td>
+        <td>{{order.received_date}}</td>
+        <td>{{order.assigned_to}}</td>
+        <!--          <td>{{order.assigned_to[i].person_name}}{{order.assigned_to[i].status}}</td>-->
+        <td>{{order.status}}</td>
+        <td>{{order.priority}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
