@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Orders, ResponseOrder} from "../../models/order.interface";
 import {OrderService} from "../../services/order.service";
 
