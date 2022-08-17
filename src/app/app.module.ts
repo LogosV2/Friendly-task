@@ -7,7 +7,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from "@angular/forms";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
-import { SearchFilterPipe } from './components/order-table/pipe/search-filter.pipe';
+import { SearchFilterPipe } from './pipe/search-filter.pipe';
 
 
 @NgModule({

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Orders, ResponseOrder} from "../../models/order.interface";
+import {OrderService} from "../../services/order.service";
 
 @Component({
   selector: 'app-order-table',
@@ -12,11 +13,11 @@ export class OrderTableComponent implements OnInit {
   orders: Orders[];
   allOrders: Orders[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private service:OrderService) {
   }
 
   ngOnInit(): void {
-    this.http.get<ResponseOrder>('assets/orders.json').subscribe(data => {
+    this.service.getOrders().subscribe((data:ResponseOrder) => {
         this.orders = data.response.data;
         this.allOrders = this.orders;
       }
