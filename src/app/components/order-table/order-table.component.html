@@ -1,5 +1,4 @@
 <div class="m-3">
-  <h1>Friendly Task</h1>
   <div class="wrap">
     <div class="search">
       <input class="searchTerm" type="text" name="searchDescription"
@@ -19,12 +18,18 @@
       </thead>
 
       <tbody>
-      <tr *ngFor="let order of orders ; index as i">
+      <tr *ngFor="let order of orders;">
         <td>{{order.work_order_id}}</td>
         <td>{{order.description}}</td>
         <td>{{order.received_date}}</td>
-        <td>{{order.assigned_to}}</td>
-        <!--          <td>{{order.assigned_to[i].person_name}}{{order.assigned_to[i].status}}</td>-->
+        <td>
+          <ng-container *ngIf="order?.assigned_to?.length; else noData">
+            <ng-container *ngFor="let item of order.assigned_to">
+              {{item?.person_name}},
+              {{item?.status}}
+            </ng-container>
+          </ng-container>
+        </td>
         <td>{{order.status}}</td>
         <td>{{order.priority}}</td>
       </tr>
@@ -32,3 +37,4 @@
     </table>
   </div>
 </div>
+<ng-template #noData>---</ng-template>

@@ -3,7 +3,7 @@ export interface Orders {
   description: string;
   received_date: string;
   assigned_to: AssignedOrder[];
-  status: string;
+  status:  string;
   priority: string;
 }
 
